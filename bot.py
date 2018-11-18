@@ -159,4 +159,30 @@ async def suggest(ctx, *, msg=None):
         await client.delete_message(ctx.message)
     return
 
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)     
+async def mute(ctx, user: discord.Member):
+    nickname = '[Muted] ' + user.name
+    
+    await client.change_nickname(user, nickname=nickname)
+    role = discord.utils.get(ctx.message.server.roles, name='Muted')
+    await client.add_roles(user, role)
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+    embed.set_author(name='Mute Announce')
+    embed.add_field(name = '__Announce__',value ='**You has been muted!.**',inline = False)
+
+    await client.send_message(user,embed=embed)
+    await client.delete_message(ctx.message)
+    
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)     
+async def unmute(ctx, user: discord.Member):
+    nickname = user.name
+    await client.change_nickname(user, nickname=nickname)
+    role = discord.utils.get(ctx.message.server.roles, name='Muted')
+    await client.remove_roles(user, role)
+    await client.delete_message(ctx.message)
+
+
 client.run(os.getenv("BOT_TOKEN"))

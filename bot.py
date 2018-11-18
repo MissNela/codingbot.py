@@ -132,7 +132,7 @@ async def warn(ctx, userName: discord.User, *, message:str):
         await client.say("warning {0} Has Been Warned! Warning Reason : {1} ".format(userName,message))
         pass
     
- @client.command(pass_context=True)
+@client.command(pass_context=True)
 async def modmail(ctx, *, msg=None):
     channel = discord.utils.get(client.get_all_channels(), name='logs')
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))

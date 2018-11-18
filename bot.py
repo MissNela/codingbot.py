@@ -132,6 +132,7 @@ async def warn(ctx, userName: discord.User, *, message:str):
         await client.say("warning {0} Has Been Warned! Warning Reason : {1} ".format(userName,message))
         pass
     
+
 @client.command(pass_context=True)
 async def modmail(ctx, *, msg=None):
     channel = discord.utils.get(client.get_all_channels(), name='logs')
@@ -146,9 +147,11 @@ async def modmail(ctx, *, msg=None):
 
 @client.command(pass_context=True)
 async def suggest(ctx, *, msg=None):
+
+
     channel = discord.utils.get(client.get_all_channels(), name='suggestions')
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    color = discord.Color((r << 20) + (g << 14) + b)
+    color = discord.Color((r << 16) + (g << 8) + b)
     if not msg:
         await client.say("Please specify a message to send")
     else:

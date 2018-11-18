@@ -17,7 +17,7 @@ from discord import Game, Embed, Color, Status, ChannelType
 
 
 
-client = commands.Bot(command_prefix = '/')
+client = commands.Bot(command_prefix = '(')
 
 
 @client.event

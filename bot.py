@@ -98,4 +98,23 @@ async def dmod(ctx, user: discord.Member):
     await client.remove_roles(user, role)
     await client.delete_message(ctx.message)
 
+
+@client.command(pass_context=True)
+@commands.has_permissions(kick_members=True)
+
+async def warn(ctx, userName: discord.User, *, message:str):
+        await client.send_message(userName, "You have been warned for: {}".format(message)) 
+        await client.say("warning {0} Has Been Warned! Warning Reason : {1} ".format(userName,message))
+        pass
+    channel = discord.utils.get(client.get_all_channels(), server__name='Bot Support Central', name='logs')
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    embed = discord.Embed(title='Warning for {member.name} ', description='''
+    __User__
+    {member.name}
+    __Reason__
+    {1}''', color = discord.Color((r << 16) + (g << 8) + b))
+
+    await client.send_message(channel, embed=embed)
+
+ 
 client.run(os.getenv("BOT_TOKEN"))

@@ -18,13 +18,36 @@ from discord import Game, Embed, Color, Status, ChannelType
 
 
 client = commands.Bot(command_prefix = '(')
-
+client.remove_command'help')
 
 @client.event
 async def on_ready():
     await client.change_presence(game=discord.Game(name= "Prefix: ("))
     print("The bot is online and connected with Discord!")
 
+@client.command
+async def help():
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+    embed.set_author(name= "Help Commanda")
+    embed.add_field(name = 'BASIC', value = ' ',inline = False)
+    embed.add_field(name = '(noncoder', value = 'Makes you a Non Coder (You cant use Verify then.)',inline = False)
+    embed.add_field(name = '(verify', value = 'Makes you coding newbie. (you cant use this when you used ``(noncoder)``)',inline = False)
+    embed.add_field(name = '(modmail', value = 'Writes something to the mod logs. If abused that command. you will be muted.',inline = False)
+    embed.add_field(name = '(suggest', value = 'Writes a suggestion in a Suggestions channel.',inline = False)
+    embed.add_field(name = 'MODERATION', value = ' ',inline = False)
+    embed.add_field(name = '(mute', value = 'Mutes a user! Usage: (mute @user',inline = False)
+    embed.add_field(name = '(mmod', value = 'Makes mod. For admin only! Ysage: (mmod @user',inline = False)
+    embed.add_field(name = '(dmod', value = 'Removes mod! Usage: (dmod @user. For admins only!',inlind = False)
+    embed.add_field(name = '(madmin', value = ' Makes a user admin! Usage: (madmin @user. Head of coding only!',inline = False)
+                    
+    embed.add_field(name = '(dadmin', value = ' Removes a admin. Usage: (dadmin @user. Head of coding only!',inline = False)
+    
+    embed.add_field(name = '(mute', value = 'Mutes a user. Uasge: (mute @user.',inline = False)
+    embed.add_field(name = '(unmute', value = 'Unmutes a user. Usage: (unmute @user.',inline = False)
+    embed.add_field(name = '(warn', value = 'Warns a user. Uasage: (warn @user.',inline = False)
+    await client.send_message(member, embed=embed)
+    
 @client.event
 async def on_member_join(member):
     print("In our server" + member.name + " just joined")
@@ -135,7 +158,7 @@ async def warn(ctx, userName: discord.User, *, message:str):
 
 @client.command(pass_context=True)
 async def modmail(ctx, *, msg=None):
-    channel = discord.utils.get(client.get_all_channels(), name='logs')
+    channel = discord.utils.get(client.get_all_channels(), name='logs-1')
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     color = discord.Color((r << 16) + (g << 8) + b)
     if not msg:

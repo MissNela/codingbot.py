@@ -66,7 +66,7 @@ No staff disrespect this will result in a ban and never try to break any one of 
     embed.set_thumbnail(url=member.avatar_url)
     await client.send_message(channel, embed=embed)
     
-class Main_Commands()
+class Main_Commands():
         def __int__(self, bot):
         self.bot = bot
    

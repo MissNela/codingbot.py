@@ -38,6 +38,7 @@ No dangerous/IP booter code
 No asking for admin
 No abusing ranks
 No racism 
+
 Do not insult other people
 Do not start fights
 Do. Not ask for admin unless you are applying
@@ -72,28 +73,49 @@ async def noncoder(ctx):
     
 @client.command()
 async def help():
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-    embed.set_author(name= "Help Commanda")
-    embed.add_field(name = 'BASIC', value = ' ',inline = False)
-    embed.add_field(name = '(noncoder', value = 'Makes you a Non Coder (You cant use Verify then.)',inline = False)
-    embed.add_field(name = '(verify', value = 'Makes you coding newbie. (you cant use this when you used ``(noncoder)``)',inline = False)
-    embed.add_field(name = '(modmail', value = 'Writes something to the mod logs. If abused that command. you will be muted.',inline = False)
-    embed.add_field(name = '(suggest', value = 'Writes a suggestion in a Suggestions channel.',inline = False)
-    embed.add_field(name = 'MODERATION', value = ' ',inline = False)
-    embed.add_field(name = '(mute', value = 'Mutes a user! Usage: (mute @user',inline = False)
-    embed.add_field(name = '(mmod', value = 'Makes mod. For admin only! Ysage: (mmod @user',inline = False)
-    embed.add_field(name = '(dmod', value = 'Removes mod! Usage: (dmod @user. For admins only!',inline = False)
-    embed.add_field(name = '(madmin', value = ' Makes a user admin! Usage: (madmin @user. Head of coding only!',inline = False)
-                    
-    embed.add_field(name = '(dadmin', value = ' Removes a admin. Usage: (dadmin @user. Head of coding only!',inline = False)
-    
-    embed.add_field(name = '(mute', value = 'Mutes a user. Uasge: (mute @user.',inline = False)
-    embed.add_field(name = '(unmute', value = 'Unmutes a user. Usage: (unmute @user.',inline = False)
-    embed.add_field(name = '(warn', value = 'Warns a user. Uasage: (warn @user.',inline = False)
+    embed = discord.Embed(
+        title = "Help Commands!",
+        description = """
+        **(help**
+        Shows this message.
+        
+        **(verify**
+        If you are coder use this command.
+        
+        **(noncoder**
+        If you arent coder use this.
+        
+        **(modmail**
+        Sends mail to our logs!
+        
+        **(mmod @user**
+        Makes a user mod.
+        
+        **(dmod @user**
+        Removes a user from moderators.
+        
+        **(madmin @user**
+        Makes user to be admin.
+        
+        **(dadmin @usrr**
+        Removes admin from user.
+        
+        **(warn @user**
+        Warns a user
+        
+        **(suggest**
+        Makes a suggestion in suggeations channel
+        
+        **(mute @user**
+        Mutes a user
+        
+        **(unmute @user**
+        Unmutes a user.
+        """
+        color = discord.Color.green()
+)
     await client.say(embed=embed)
-    
-   
+  
 @client.command(pass_context=True)
 async def verify(ctx):
     await client.delete_message(ctx.message)

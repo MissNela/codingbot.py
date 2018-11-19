@@ -46,7 +46,7 @@ async def help():
     embed.add_field(name = '(mute', value = 'Mutes a user. Uasge: (mute @user.',inline = False)
     embed.add_field(name = '(unmute', value = 'Unmutes a user. Usage: (unmute @user.',inline = False)
     embed.add_field(name = '(warn', value = 'Warns a user. Uasage: (warn @user.',inline = False)
-    await client.send_message(member, embed=embed)
+    await client.send_message(embed=embed)
     
 @client.event
 async def on_member_join(member):

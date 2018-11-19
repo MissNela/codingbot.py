@@ -83,7 +83,7 @@ async def help():
     embed.add_field(name = 'MODERATION', value = ' ',inline = False)
     embed.add_field(name = '(mute', value = 'Mutes a user! Usage: (mute @user',inline = False)
     embed.add_field(name = '(mmod', value = 'Makes mod. For admin only! Ysage: (mmod @user',inline = False)
-    embed.add_field(name = '(dmod', value = 'Removes mod! Usage: (dmod @user. For admins only!',inlind = False)
+    embed.add_field(name = '(dmod', value = 'Removes mod! Usage: (dmod @user. For admins only!',inline = False)
     embed.add_field(name = '(madmin', value = ' Makes a user admin! Usage: (madmin @user. Head of coding only!',inline = False)
                     
     embed.add_field(name = '(dadmin', value = ' Removes a admin. Usage: (dadmin @user. Head of coding only!',inline = False)

@@ -68,7 +68,7 @@ No staff disrespect this will result in a ban and never try to break any one of 
     
 class Main_Commands():
         def __int__(self, bot):
-        self.bot = bot
+         self.bot = bot
    
 
 @client.command(pass_context=True)

@@ -16,8 +16,9 @@ from discord import Game, Embed, Color, Status, ChannelType
 
 
 
-
+startup_extensions = ["Music]
 client = commands.Bot(command_prefix = '(')
+
 client.remove_command('help')
 
 @client.event
@@ -64,6 +65,11 @@ No staff disrespect this will result in a ban and never try to break any one of 
     embed.set_image(url = 'https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif')
     embed.set_thumbnail(url=member.avatar_url)
     await client.send_message(channel, embed=embed)
+    
+class Main_Commands()
+        def __int__(self, bot):
+        self.bot = bot
+   
 
 @client.command(pass_context=True)
 async def noncoder(ctx):
@@ -231,5 +237,13 @@ async def unmute(ctx, user: discord.Member):
     await client.remove_roles(user, role)
     await client.delete_message(ctx.message)
 
+if __name__ = "__main__":
+    for extension in startup_extension:
+        try:
+            bot.load_extension(extension)
+        expekt Exception as e:
+            exc = '(): ()'.format(type(e).__name__, e)
+            print('Failed to load extension ()\n()'.format(extension, exc))
+                       
 
 client.run(os.getenv("BOT_TOKEN"))

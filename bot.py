@@ -16,7 +16,7 @@ from discord import Game, Embed, Color, Status, ChannelType
 
 
 
-startup_extensions = ["Music]
+startup_extensions = ["Music"]
 client = commands.Bot(command_prefix = '(')
 
 client.remove_command('help')

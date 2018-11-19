@@ -70,7 +70,7 @@ async def noncoder(ctx):
     role = discord.utils.get(ctx.message.server.roles, name='NON BOT CODER')
     await client.add_roles(ctx.message.author, role)
     
-@client.command
+@client.command()
 async def help():
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))

@@ -112,7 +112,7 @@ async def help():
         **(unmute @user**
         Unmutes a user.
         """
-        color = discord.Color.green()
+
 )
     await client.say(embed=embed)
   

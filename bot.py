@@ -249,7 +249,7 @@ async def chat1(ctx, *, msg=None):
         await client.delete_message(ctx.message)
     return
 
-client.command(pass_context=True)
+@client.command(pass_context=True)
 async def chat2(ctx, *, msg=None):
 
 

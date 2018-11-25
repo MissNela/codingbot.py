@@ -184,10 +184,10 @@ async def warn(ctx, userName: discord.User, *, message:str):
     await client.send_message(channel, """
     Varování pro:
     ``{0}``
-   
     Z dúvodu:
     ``{1}`` """.format(userName,message,)) + """
-    Moderátor:""".format(member, ctx.message.author)
+    Moderátor:
+    {0}""".format(member, ctx.message.author)
     
     
 

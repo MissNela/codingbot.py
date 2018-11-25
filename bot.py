@@ -182,12 +182,10 @@ async def warn(ctx, userName: discord.User, *, message:str):
     channel = discord.utils.get(client.get_all_channels(), name='logs-1')
     await client.send_message(userName, "Byl jsi varován za: **{}**".format(message))
     await client.send_message(channel, """
-    Varování pro:
+    User warned:
     ``{0}``
-    Z dúvodu:
-    ``{1}`` """.format(userName,message,)) + """
-    Moderátor:
-    {0}""".format(member, ctx.message.author)
+    Reason:
+    ``{1}`` """.format(userName,message,))
     
     
 

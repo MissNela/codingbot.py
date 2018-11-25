@@ -186,7 +186,9 @@ async def warn(ctx, userName: discord.User, *, message:str):
     ``{0}``
    
     Z dúvodu:
-    ``{1}`` """.format(userName,message))
+    ``{1}`` """.format(userName,message,)) + """
+    Moderátor:""".format(member, ctx.message.author)
+    
     
 
 @client.command(pass_context=True)

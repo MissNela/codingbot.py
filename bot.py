@@ -174,13 +174,19 @@ async def dadmin(ctx, user: discord.Member):
     await client.remove_roles(user, role)
     await client.delete_message(ctx.message)
 
-@client.command(pass_context=True)
+@client.command(pass_context = True)
 @commands.has_permissions(kick_members=True)
 
 async def warn(ctx, userName: discord.User, *, message:str):
-        await client.send_message(userName, "You have been warned for: {}".format(message)) 
-        await client.say("warning {0} Has Been Warned! Warning Reason : {1} ".format(userName,message))
-        pass
+
+    channel = discord.utils.get(client.get_all_channels(), name='logs-1')
+    await client.send_message(userName, "Byl jsi varován za: **{}**".format(message))
+    await client.send_message(channel, """
+    Varování pro:
+    ``{0}``
+   
+    Z dúvodu:
+    ``{1}`` """.format(userName,message))
     
 
 @client.command(pass_context=True)

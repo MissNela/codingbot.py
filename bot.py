@@ -254,6 +254,7 @@ async def announce(ctx, userName: discord.User, *, message:str):
         description = """ __**Announce has been successfully made!**__"""
         
 )
+    await client.delete_message(ctx.message)
     await client.send_message(userName, embed=embed)
  
 

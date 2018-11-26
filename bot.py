@@ -110,10 +110,10 @@ async def help():
         Makes a suggestion in suggeations channel
         
         **(mute @user**
-        Mutes a user **[Unavailable]**
+        Mutes a user 
         
         **(unmute @user**
-        Unmutes a user. **[Unavailable]**
+        Unmutes a user.
         
         **(announce**
         Announces something. \manage roles permission needed./
@@ -264,11 +264,80 @@ async def announce(ctx, userName: discord.User, *, message:str):
     Announcement:
     {0}
     Announced by:
-    ``{1}``""".format(message, ctx.message.author)
+    ``{1}``""".format(message, ctx.message.author))
     
 
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)     
+async def mute(ctx, user: discord.Member):
+    nickname = '[Muted] ' + user.name
+    
+    await client.change_nickname(user, nickname=nickname)
+    role = discord.utils.get(ctx.message.server.roles, name='Muted')
+    await client.add_roles(user, role)
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+    embed.set_author(name='Mute Announce')
+    embed.add_field(name = '__Announce__',value ='**You has been muted!.**',inline = False)
+
+    await client.send_message(user,embed=embed)
+    await client.delete_message(ctx.message)
+    
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)     
+async def unmute(ctx, user: discord.Member):
+    nickname = user.name
+    await client.change_nickname(user, nickname=nickname)
+    role = discord.utils.get(ctx.message.server.roles, name='Muted')
+    await client.remove_roles(user, role)
+    await client.delete_message(ctx.message)
 
 
 
 
-run(os.getenv("BOT_TOKEN"))
+@client.command(pass_context=True)
+async def chat1(ctx, *, msg=None):
+
+
+    channel = discord.utils.get(client.get_all_channels(), name='bot-chat1')
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    color = discord.Color((r << 16) + (g << 8) + b)
+    if not msg:
+        await client.say("Please specify a message to send")
+    else:
+        await client.send_message(channel, embed=discord.Embed(color=color, description=msg + '\n Message From-' + ctx.message.author.id))
+        await client.delete_message(ctx.message)
+    return
+
+@client.command(pass_context=True)
+async def chat2(ctx, *, msg=None):
+
+
+    channel = discord.utils.get(client.get_all_channels(), name='bot-chat2')
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    color = discord.Color((r << 16) + (g << 8) + b)
+    if not msg:
+        await client.say("Please specify a message to send")
+    else:
+        await client.send_message(channel, embed=discord.Embed(color=color, description=msg + '\n Message From-' + ctx.message.author.id))
+        await client.delete_message(ctx.message)
+    return
+
+
+
+client.command(pass_context = True)
+     
+async def userinfo(ctx, user: discord.Member):
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    embed = discord.Embed(title="{}'s info".format(user.name), description="Here's what I could find.", color = discord.Color((r << 16) + (g << 8) + b))
+    embed.add_field(name="Name", value=user.name, inline=True)
+    embed.add_field(name="ID", value=user.id, inline=True)
+    embed.add_field(name="Status", value=user.status, inline=True)
+    embed.add_field(name="Highest role", value=user.top_role)
+    embed.add_field(name="Joined", value=user.joined_at)
+    embed.set_thumbnail(url=user.avatar_url)
+    await client.say(embed=embed)
+
+
+
+client.run(os.getenv("BOT_TOKEN"))

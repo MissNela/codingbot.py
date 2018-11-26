@@ -178,10 +178,12 @@ async def dadmin(ctx, user: discord.Member):
 @commands.has_permissions(kick_members=True)
 
 async def warn(ctx, userName: discord.User, *, message:str):
-    embed = discord.Embed(
     channel = discord.utils.get(client.get_all_channels(), name='🎀logs-1🎀')
-    title = "Warning",
-    description = """ __**You has been warned!**__
+    
+    embed = discord.Embed(
+        
+        title = "Warning",
+        description = """ __**You has been warned!**__
     User warned:
     ``{0}``
     Reason:

@@ -230,7 +230,7 @@ async def modmail(ctx, *, msg=None):
 async def suggest(ctx, *, msg=None):
 
 
-    channel = discord.utils.get(client.get_all_channels(), name='🎀announcements🎀')
+    channel = discord.utils.get(client.get_all_channels(), name='announcements')
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     color = discord.Color((r << 16) + (g << 8) + b)
     if not msg:

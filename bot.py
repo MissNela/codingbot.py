@@ -242,21 +242,32 @@ async def suggest(ctx, *, msg=None):
         await client.delete_message(ctx.message)
     return
 
-@client.command(pass_context=True)
-@commands.has_permissions(manage_roles = True)
-async def announce(ctx, *, msg=None):
+@client.command(pass_context = True)
+@commands.has_permissions(kick_members=True)
 
-
+async def announce(ctx, userName: discord.User, *, message:str):
     channel = discord.utils.get(client.get_all_channels(), name='🎀announcements🎀')
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    color = discord.Color((r << 16) + (g << 8) + b)
-    if not msg:
-        await client.say("Please specify a message to send")
-    else:
-        await client.send_message(channel, embed=discord.Embed(color=color, description=msg + '\n Message From-' + ctx.message.author.id))
-        await client.delete_message(ctx.message)
-    return
+    
+    embed = discord.Embed(
+        
+        title = "Succesful!",
+        description = """ __**Announce has been successfully made!**__"""
+        
+)
+    await client.send_message(userName, embed=embed)
+ 
 
+    
+        
+        title = "New Announcement!",
+        description = """
+        Announcement:
+        {0}
+        Announced by:
+        ``{1}``""".format(message, ctx.message.author)
+)
+    await client.send_message(channel)
+    
 
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)     

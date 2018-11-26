@@ -190,9 +190,7 @@ async def warn(ctx, userName: discord.User, *, message:str):
         ``{1}`` 
         Moderator:
         ``{2}``""".format(userName, message, ctx.message.author)
-        colour=discord.Colour.dark_red()
-       
-    
+        
 )
     await client.send_message(userName, embed=embed)
  
@@ -207,7 +205,6 @@ async def warn(ctx, userName: discord.User, *, message:str):
         ``{1}`` 
         Moderator:
         ``{2}``""".format(userName, message, ctx.message.author)
-        colour=discord.Colour.dark_red()
 )
     await client.send_message(channel, embed=embed)
     

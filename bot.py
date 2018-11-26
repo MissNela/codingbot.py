@@ -194,7 +194,7 @@ async def warn(ctx, userName: discord.User, *, message:str):
        
     
 )
-    await client.send_message(userName, embed=embed)
+    await client.send_message(userName, channel, embed=embed)
     await client.send_message(channel, """
     User warned:
     ``{0}``

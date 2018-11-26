@@ -180,7 +180,13 @@ async def dadmin(ctx, user: discord.Member):
 async def warn(ctx, userName: discord.User, *, message:str):
 
     channel = discord.utils.get(client.get_all_channels(), name='🎀logs-1🎀')
-    await client.send_message(userName, "Byl jsi varován za: **{}**".format(message))
+    await client.send_message(userName, """__**Dostals/Dostalas varování!**__
+    User warned:
+    ``{0}``
+    Reason:
+    ``{1}`` 
+    Moderator:
+    ``{2}``""".format(userName, message, ctx.message.author))
     await client.send_message(channel, """
     User warned:
     ``{0}``

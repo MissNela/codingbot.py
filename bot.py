@@ -192,7 +192,7 @@ async def warn(ctx, userName: discord.User, *, message:str):
     ``{2}``""".format(userName, message, ctx.message.author)
     
        
-    color: discord.Color.yellow()
+    colour = discord.Colour.yellow()
 )
     await client.send_message(userName, embed=embed)
     await client.send_message(channel, """

@@ -114,6 +114,9 @@ async def help():
         
         **(unmute @user**
         Unmutes a user.
+        
+        **(announce**
+        Announces something. \manage roles permission needed./
         """
 
 )

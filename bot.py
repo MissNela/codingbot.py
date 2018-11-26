@@ -259,14 +259,12 @@ async def announce(ctx, userName: discord.User, *, message:str):
 
     
         
-        title = "New Announcement!",
-        description = """
-        Announcement:
-        {0}
-        Announced by:
-        ``{1}``""".format(message, ctx.message.author)
-)
-    await client.send_message(channel)
+        
+    await client.send_message(channel, """**New Announcement!**
+    Announcement:
+    {0}
+    Announced by:
+    ``{1}``""".format(message, ctx.message.author)
     
 
 @client.command(pass_context = True)

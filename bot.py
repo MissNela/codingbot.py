@@ -195,6 +195,19 @@ async def warn(ctx, userName: discord.User, *, message:str):
     
 )
     await client.send_message(userName, embed=embed)
+ 
+
+    embed = discord.Embed(
+        
+        title = "Warning",
+        description = """ __**You has been warned!**__
+    User warned:
+    ``{0}``
+    Reason:
+    ``{1}`` 
+    Moderator:
+    ``{2}``""".format(userName, message, ctx.message.author)
+)
     await client.send_message(channel, embed=embed)
     
     

@@ -185,7 +185,9 @@ async def warn(ctx, userName: discord.User, *, message:str):
     User warned:
     ``{0}``
     Reason:
-    ``{1}`` """.format(userName,message,))
+    ``{1}`` 
+    Moderator:
+    ``{2}``""".format(userName, message, ctx.message.author))
     
     
 

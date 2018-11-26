@@ -178,15 +178,20 @@ async def dadmin(ctx, user: discord.Member):
 @commands.has_permissions(kick_members=True)
 
 async def warn(ctx, userName: discord.User, *, message:str):
-
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+    
     channel = discord.utils.get(client.get_all_channels(), name='🎀logs-1🎀')
-    await client.send_message(userName, """__**Dostals/Dostalas varování!**__
+    embed.set_author(name = "Warning")
+    embed.add_field(name = " __**You has been warned!**__", value ="""
     User warned:
     ``{0}``
     Reason:
     ``{1}`` 
     Moderator:
-    ``{2}``""".format(userName, message, ctx.message.author))
+    ``{2}``""", .format(userName, message, ctx.message.author), inline = False)
+
+    await client.send_message(userName, embed=embed)
     await client.send_message(channel, """
     User warned:
     ``{0}``

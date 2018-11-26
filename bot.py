@@ -238,7 +238,7 @@ async def suggest(ctx, *, msg=None):
     if not msg:
         await client.say("Please specify a message to send")
     else:
-        await client.send_message(channel, embed=discord.Embed(color=color, description=msg + '\n Message From-' + ctx.message.author))
+        await client.send_message(channel, embed=discord.Embed(color=color, description=msg + '\n Message From-' + ctx.message.author.id))
         await client.delete_message(ctx.message)
     return
 
@@ -253,7 +253,7 @@ async def announce(ctx, *, msg=None):
     if not msg:
         await client.say("Please specify a message to send")
     else:
-        await client.send_message(channel, embed=discord.Embed(color=color, description=msg + '\n Message From-' + ctx.message.author))
+        await client.send_message(channel, embed=discord.Embed(color=color, description=msg + '\n Message From-' + ctx.message.author.id))
         await client.delete_message(ctx.message)
     return
 

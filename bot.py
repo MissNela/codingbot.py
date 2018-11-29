@@ -345,7 +345,7 @@ async def userinfo(ctx, user: discord.Member):
     await client.say(embed=embed)
 
 @client.command
-asyn def cube():
+async def cube():
     choices = [
         "1",
         "2",

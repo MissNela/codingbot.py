@@ -73,7 +73,7 @@ async def on_message_delete(message):
     User deleted message:
     __{0}__
     Message:
-    __**{1}**__""".format(message.userName, message)
+    __**{1}**__""".format(message.userName, message))
 
 
 

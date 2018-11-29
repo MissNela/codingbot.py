@@ -344,7 +344,7 @@ async def userinfo(ctx, user: discord.Member):
     embed.set_thumbnail(url=user.avatar_url)
     await client.say(embed=embed)
 
-@client.command
+@client.command()
 async def cube():
     choices = [
         "1",

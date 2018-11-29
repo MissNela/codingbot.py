@@ -76,12 +76,7 @@ async def on_message_delete(message):
     __**{1}**__""".format(message.userName, message)
 
 
-@client.command(pass_context=True)
-async def noncoder(ctx):
-    await client.delete_message(ctx.message)
-    role = discord.utils.get(ctx.message.server.roles, name='NON BOT CODER')
-    await client.add_roles(ctx.message.author, role)
-    
+
 @client.command()
 async def help():
     embed = discord.Embed(

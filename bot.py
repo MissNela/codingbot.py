@@ -347,12 +347,12 @@ async def userinfo(ctx, user: discord.Member):
 @client.command()
 async def cube():
     choices = [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",]
+        "You dropped cube and have 1",
+        "You dropped cube and have 2",
+        "You dropped cube and have 3",
+        "You dropped cube and have 4",
+        "You dropped cube and have 5",
+        "You dropped cube and have 6",]
     await client.say(random.choice(choices))
     
 

@@ -118,8 +118,11 @@ async def help():
         **(announce**
         Announces something. \manage roles permission needed./
         
-        **(userinfo*
+        **(userinfo**
         Gets info about user!
+        
+        **(cube**
+        Chooses randome number between 1-6.
         """
 
 )
@@ -192,10 +195,10 @@ async def warn(ctx, userName: discord.User, *, message:str):
         description = """ __**You has been warned!**__
         User warned:
         ``{0}``
-        Reason:
-        ``{1}`` 
         Moderator:
-        ``{2}``""".format(userName, message, ctx.message.author)
+        ``{1}`` 
+        Reason:
+        ``{2}``""".format(userName, ctx.mrssage.author, message)
         
 )
     await client.send_message(userName, embed=embed)
@@ -207,10 +210,10 @@ async def warn(ctx, userName: discord.User, *, message:str):
         description = """ __**You has been warned!**__
         User warned:
         ``{0}``
-        Reason:
-        ``{1}`` 
         Moderator:
-        ``{2}``""".format(userName, message, ctx.message.author)
+        ``{1}`` 
+        Reason:
+        ``{2}``""".format(userName, ctx.message.author, message)
 )
     await client.send_message(channel, embed=embed)
     
@@ -262,9 +265,11 @@ async def announce(ctx, userName: discord.User, *, message:str):
         
         
     await client.send_message(channel, """**New Announcement!**
-    Announcement:
+    __Announcement:__
+    
     {0}
-    Announced by:
+    
+    __Announced by:__
     ``{1}``""".format(message, ctx.message.author))
     
 
@@ -326,7 +331,7 @@ async def chat2(ctx, *, msg=None):
 
 
 
-client.command(pass_context = True)
+@client.command(pass_context = True)
      
 async def userinfo(ctx, user: discord.Member):
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
@@ -339,6 +344,16 @@ async def userinfo(ctx, user: discord.Member):
     embed.set_thumbnail(url=user.avatar_url)
     await client.say(embed=embed)
 
-
+@client.command
+asyn def cube():
+    choices = [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",]
+    await client.send_message(message.channel, (random.choice(choices)))
+    
 
 client.run(os.getenv("BOT_TOKEN"))

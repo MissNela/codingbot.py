@@ -342,7 +342,7 @@ async def userinfo(ctx, user: discord.Member):
     embed.add_field(name="Highest role", value=user.top_role)
     embed.add_field(name="Joined", value=user.joined_at)
     embed.set_thumbnail(url=user.avatar_url)
-    await client.say(embed=embed)
+  await client.say(embed=embed)
 
 @client.command()
 async def cube():
@@ -353,7 +353,7 @@ async def cube():
         "4",
         "5",
         "6",]
-    await client.say(message.channel,(random.choice(choices)))
+    await client.say(channel,(random.choice(choices)))
     
 
 client.run(os.getenv("BOT_TOKEN"))

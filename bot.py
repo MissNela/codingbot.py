@@ -66,6 +66,14 @@ No staff disrespect this will result in a ban and never try to break any one of 
     embed.set_thumbnail(url=member.avatar_url)
     await client.send_message(channel, embed=embed)
     
+@client.event()
+async def on_message_delete(message):
+    channel = discord.utils.get(client.get_all_channels(), name='🎀logs-1🎀')
+    await client.send_message(channel, """Message deleted:
+    User deleted message:
+    __{0}__
+    Message:
+    __**{1}**__""".format(message.userName, message)
 
 
 @client.command(pass_context=True)

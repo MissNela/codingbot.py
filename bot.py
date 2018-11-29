@@ -353,7 +353,7 @@ async def cube():
         "4",
         "5",
         "6",]
-    await client.send_message(message.channel, (random.choice(choices)))
+    await client.say(message.channel,(random.choice(choices)))
     
 
 client.run(os.getenv("BOT_TOKEN"))

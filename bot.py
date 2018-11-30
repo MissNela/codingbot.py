@@ -351,7 +351,7 @@ async def cube():
     await client.say(random.choice(choices))
     
 @client.command(pass_context = True)
-@commands.has_permissions(kick_members=True)
+
 
 async def updates(ctx, *, message:str):
     channel = discord.utils.get(client.get_all_channels(), name='coder-bot')

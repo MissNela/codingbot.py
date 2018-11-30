@@ -350,5 +350,28 @@ async def cube():
         "You dropped cube and have 6",]
     await client.say(random.choice(choices))
     
+@client.command(pass_context = True)
+@commands.has_permissions(kick_members=True)
+
+async def updates(ctx, *, message:str):
+    channel = discord.utils.get(client.get_all_channels(), name='🎀logs-1🎀')
+    
+    embed = discord.Embed(
+        
+        title = "Update log",
+        description = """ __**Bots update:**__
+        Update:
+        ``{0}``
+        
+        Bot Developer:
+        ``{1}`
+        
+        Prefix:
+        **(**` 
+        """.format(message, ctx.mrssage.author)
+        
+)
+    await client.send_message(userName, embed=embed)
+ 
 
 client.run(os.getenv("BOT_TOKEN"))

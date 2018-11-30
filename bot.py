@@ -193,7 +193,7 @@ async def warn(ctx, userName: discord.User, *, message:str):
         Moderator:
         ``{1}`` 
         Reason:
-        ``{2}``""".format(userName, ctx.mrssage.author, message)
+        ``{2}``""".format(userName, ctx.message.author, message)
         
 )
     await client.send_message(userName, embed=embed)

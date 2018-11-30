@@ -368,7 +368,7 @@ async def updates(ctx, *, message:str):
         
         Prefix:
         **(**` 
-        """.format(message, ctx.merssage.author)
+        """.format(message, ctx.message.author)
         
 )
     await client.send_message(userName, embed=embed)

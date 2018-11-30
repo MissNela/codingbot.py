@@ -371,7 +371,7 @@ async def updates(ctx, *, message:str):
         """.format(message, ctx.message.author)
         
 )
-    await client.send_message(userName, embed=embed)
+    await client.send_message(channel, embed=embed)
  
 
 client.run(os.getenv("BOT_TOKEN"))

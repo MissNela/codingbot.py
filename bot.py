@@ -27,6 +27,15 @@ async def on_ready():
     print("The bot is online and connected with Discord!")
 
 
+ def is_owner(ctx):
+    return ctx.message.author.id == "342364288310312970"
+   
+@client.command(pass_context = True)
+@commands.check(is_owner)
+async def restart():
+    await client.logout()    
+    
+    
 @client.event
 async def on_member_join(member):
     print("In our server" + member.name + " just joined")
@@ -130,6 +139,9 @@ async def help():
         
         **(stop**
         Stops playing music!
+        
+        **(restart**
+        Developer Only. Bot will restart
         """
 
 )

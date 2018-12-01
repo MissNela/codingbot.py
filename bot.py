@@ -69,7 +69,7 @@ No staff disrespect this will result in a ban and never try to break any one of 
 
 @client.command(pass_context = True)
 async def restart():
-    if message.author = "342364288310312970":
+    if message.author == "342364288310312970":
         await client.logout()
 
 @client.command()

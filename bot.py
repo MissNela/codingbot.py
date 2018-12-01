@@ -378,7 +378,7 @@ async def updates(ctx, *, message:str):
  
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)
-async def createC(ctx):
+async def createC(ctx, *, message:str):
     server='Bot Support Central',
     await client.create_channel(server, '{0}'.format(message))
 

@@ -24,16 +24,7 @@ client.remove_command('help')
 @client.event
 async def on_ready():
     await client.change_presence(game=discord.Game(name= "Prefix: ("))
-    print("The bot is online and connected with Discord!")
-
-
- def is_owner(ctx):
-    return ctx.message.author.id == "342364288310312970"
-   
-@client.command(pass_context = True)
-@commands.check(is_owner)
-async def restart():
-    await client.logout()    
+    print("The bot is online and connected with Discord!") 
     
     
 @client.event
@@ -76,7 +67,10 @@ No staff disrespect this will result in a ban and never try to break any one of 
     await client.send_message(channel, embed=embed)
     
 
-
+@client.command(pass_context = True)
+async def restart():
+    if message.author = "342364288310312970":
+        await client.logout()
 
 @client.command()
 async def help():

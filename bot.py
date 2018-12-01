@@ -373,5 +373,9 @@ async def updates(ctx, *, message:str):
 )
     await client.send_message(channel, embed=embed)
  
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)
+async def createC(ctx):
+    await client.create_channel(server, '{0}'.format(message))
 
 client.run(os.getenv("BOT_TOKEN"))

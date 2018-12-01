@@ -118,6 +118,9 @@ async def help():
         
         **(cube**
         Chooses randome number between 1-6.
+        
+        **(createC**
+        Creates a channel **ADMINISTRATOR permission needed.**
         """
 
 )
@@ -376,6 +379,7 @@ async def updates(ctx, *, message:str):
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)
 async def createC(ctx):
+    server='Bot Support Central',
     await client.create_channel(server, '{0}'.format(message))
 
 client.run(os.getenv("BOT_TOKEN"))

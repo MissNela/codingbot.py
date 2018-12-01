@@ -122,9 +122,6 @@ async def help():
         **(cube**
         Chooses randome number between 1-6.
         
-        **(createC**
-        Creates a channel **ADMINISTRATOR permission needed.**
-        
         **(play**
         Plays a music [BETA]
         
@@ -135,7 +132,7 @@ async def help():
         Stops playing music!
         
         **(restart**
-        Developer Only. Bot will restart
+        Developer Only. Bot will restart **[BETA]**
         """
 
 )

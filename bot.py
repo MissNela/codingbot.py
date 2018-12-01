@@ -377,9 +377,48 @@ async def updates(ctx, *, message:str):
     await client.send_message(channel, embed=embed)
  
 @client.command(pass_context = True)
-@commands.has_permissions(administrator=True)
-async def createC(ctx, *, message:str):
-    server='Bot Support Central',
-    await client.create_channel(server, '{0}'.format(message))
+@commands.has_permissions(manage_nicknames=True)     
+async def setnick(ctx, user: discord.Member, *, nickname):
+    await client.change_nickname(user, nickname)
+    await client.delete_message(ctx.message)
 
+@client.command(pass_context = True)
+@commands.has_permissions(manage_messages=True)  
+async def clear(ctx, number):
+ 
+    if ctx.message.author.server_permissions.manage_messages:
+         mgs = [] #Empty list to put all the messages in the log
+         number = int(number) #Converting the amount of messages to delete to an integer
+    async for x in client.logs_from(ctx.message.channel, limit = number+1):
+        mgs.append(x)            
+       
+    try:
+        await client.delete_messages(mgs)          
+        await client.say(str(number)+' messages deleted')
+     
+    except discord.Forbidden:
+        await client.say(embed=Forbidden)
+        return
+    except discord.HTTPException:
+        await client.say('clear failed.')
+        return         
+   
+ 
+    await client.delete_messages(mgs)
+    
+@client.command(pass_context=True)
+@commands.has_permissions(administrator=True)
+async def embed(ctx, *args):
+    """
+    Sending embeded messages with color (and maby later title, footer and fields)
+    """
+    argstr = " ".join(args)
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    text = argstr
+    color = discord.Color((r << 16) + (g << 8) + b)
+    await client.send_message(ctx.message.channel, embed=Embed(color = color, description=text))
+    await client.delete_message(ctx.message)
+
+
+    
 client.run(os.getenv("BOT_TOKEN"))

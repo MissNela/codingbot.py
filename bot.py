@@ -421,8 +421,16 @@ async def embed(ctx, *args):
 @client.command()
 async def dog():
          embed = discord.Embed()
+         embed.set_author(author="Dog!")
          embed.set_image(url = random.choice([
-             "https://cdn.discordapp.com/attachments/516388114550226944/518782783951339520/15437578341941184284651.jpg"]))  
+             "https://cdn.discordapp.com/attachments/516388114550226944/518782783951339520/15437578341941184284651.jpg",
+             "https://img.buzzfeed.com/buzzfeed-static/static/2015-02/10/12/enhanced/webdr06/anigif_enhanced-20559-1423589960-10.gif",
+             "https://cdn.discordapp.com/attachments/516388114550226944/518786921640493076/1543758832313970521957.jpg",
+             "https://i2-prod.mirror.co.uk/incoming/article9769854.ece/ALTERNATES/s615/PROD-Mixed-breed-lab-cross-8-week-old-puppy-in-farm-yard-near-Cochrane-AlbertajpgED.jpg",
+             "https://www.waterworldsons.it/wp-content/uploads/2018/07/golden-americano-inglese.jpg",
+             "https://www.mynd.nu/wp-content/uploads/2017/07/cute-golden-retriever-puppies-202-5967223e5ba31__605.jpg",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRyJ4fIfgtKv-Fv_YquF8IZUKqicFfDaSQwanf-neMJMkhAhvqm",
+             "https://www.rspcansw.org.au/wp-content/uploads/2017/08/50_a-feature_dogs-and-puppies_mobile.jpg"]))
          await client.say(embed=embed) 
 
 @client.command(pass_context=True)

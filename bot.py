@@ -133,6 +133,9 @@ async def help():
         
         **(restart**
         Developer Only. Bot will restart **[BETA]**
+        
+        **(ping**
+        :ping_pong: Pong!
         """
 
 )
@@ -469,6 +472,10 @@ async def joinvoice(ctx):
     channel = author.voice_channel
     await client.join_voice_channel(channel)
     
-
+@client.command(pass_context=True)
+async def ping(ctx):
+    t = await client.say('Pong!')
+    ms = (t.timestamp-ctx.message.timestamp).total_seconds() * 1000
+    await client.edit_message(t, new_content='ping_pong Pong! Actual ping: {}ms'.format(int(ms)))
     
 client.run(os.getenv("BOT_TOKEN"))

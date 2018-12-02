@@ -25,6 +25,8 @@ client.remove_command('help')
 async def on_ready():
     await client.change_presence(game=discord.Game(name= "Prefix: ("))
     print("The bot is online and connected with Discord!") 
+    print(user.name)
+    print(user.name.id)
     
     
 @client.event

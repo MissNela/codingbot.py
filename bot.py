@@ -120,6 +120,12 @@ async def help():
         
         **(ping**
         :ping_pong: Pong!
+        
+        **(dog*
+        Shows a cute dog!
+        
+        **(meme*
+        Shows a meme!
         """
 
 )
@@ -438,5 +444,20 @@ async def ping(ctx):
     t = await client.say('Pong!')
     ms = (t.timestamp-ctx.message.timestamp).total_seconds() * 1000
     await client.edit_message(t, new_content=':ping_pong: Pong! Actual ping: {}ms'.format(int(ms)))
+    
+@client.command()
+async def meme():
+         embed = discord.Embed(title="Take my meme!", color = xFFD700)
+         embed.set_footer(text="Tip: If the image didnt load try to use this command again!      Developer Nela. bot version: 1.1")
+         embed.set_image(url = random.choice([
+             "https://www.reddit.com/r/dankmemes/comments/9r9d4y/elonchan/",
+             "https://cdn.discordapp.com/attachments/516388114550226944/518799301498109963/ocqc6cds8jf01.jpg",
+             "https://cdn.discordapp.com/attachments/516388114550226944/518801762069774336/Screenshot_2018-08-01-15-45-12-586_com.google.android.youtube.jpg",
+             "https://cdn.discordapp.com/attachments/516388114550226944/518801762069774337/IMG_20181017_152337.jpg",
+             "https://cdn.discordapp.com/attachments/516388114550226944/518801762602319892/Screenshot_2018-06-16-14-17-03-445_com.google.android.youtube.png",
+             "https://cdn.discordapp.com/attachments/516388114550226944/518801762602319893/Who_needs_FB_or_Twitter_Funny_Meme.jpg",
+             "https://cdn.discordapp.com/attachments/516388114550226944/518801763134865409/stealth-mode-activated_o_1168408.png",
+             "https://cdn.discordapp.com/attachments/516388114550226944/518801763655221249/Screenshot_2018-08-14-14-19-14-224_com.google.android.youtube.png"]))
+        await client.say(embed=embed)
     
 client.run(os.getenv("BOT_TOKEN"))

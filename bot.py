@@ -421,7 +421,7 @@ async def embed(ctx, *args):
 @client.command()
 async def dog():
          embed = discord.Embed()
-         embed.set_author(author="Dog!")
+         embed.set_author(title="This dog is cute!")
          embed.set_image(url = random.choice([
              "https://cdn.discordapp.com/attachments/516388114550226944/518782783951339520/15437578341941184284651.jpg",
              "https://img.buzzfeed.com/buzzfeed-static/static/2015-02/10/12/enhanced/webdr06/anigif_enhanced-20559-1423589960-10.gif",

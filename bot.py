@@ -422,7 +422,7 @@ async def embed(ctx, *args):
 async def dog():
          embed = discord.Embed()
          embed.set_image(url = random.choice([
-             "https://www.google.cz/search?q=dog&tbm=isch&ved=2ahUKEwixz_KyoIHfAhUiXVAKHYXYB2gQ2-cCegQIABAC&oq=dog&gs_l=mobile-gws-wiz-img.3..0i67l3j0j0i67.1396.3474..3610...1.0..3.270.1222.0j6j1......0....1.......5..35i39.myHh91leR3g&ei=Rd4DXPGYMaK6wQKFsZ_ABg&client=ms-android-xiaomi&prmd=ivsn&biw=360&bih=560&hl=cs#imgrc=c5BCckSWa-4fmM"]))  
+             "https://cdn.discordapp.com/attachments/516388114550226944/518782783951339520/15437578341941184284651.jpg"]))  
          await client.say(embed=embed) 
 
 @client.command(pass_context=True)

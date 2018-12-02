@@ -429,7 +429,7 @@ async def embed(ctx, *args):
 @client.command()
 async def dog():
          embed = discord.Embed(title="This dog is so cute!")
-         embed.set_footer(text="Tip: If the image didnt load try to use this command again!")
+         embed.set_footer(text="Tip: If the image didnt load try to use this command again! | Developer Nela | Bot version: 1.2")
          embed.set_image(url = random.choice([
              "https://cdn.discordapp.com/attachments/516388114550226944/518782783951339520/15437578341941184284651.jpg",
              "https://img.buzzfeed.com/buzzfeed-static/static/2015-02/10/12/enhanced/webdr06/anigif_enhanced-20559-1423589960-10.gif",
@@ -450,7 +450,7 @@ async def ping(ctx):
 @client.command()
 async def meme():
          embed = discord.Embed(title="Take my meme!", color = 0xFFD700)
-         embed.set_footer(text="Tip: If the image didnt load try to use this command again!      Developer Nela. bot version: 1.1")
+         embed.set_footer(text="Tip: If the image didnt load try to use this command again! | Developer Nela | Bot version: 1.2")
          embed.set_image(url = random.choice([
              "https://www.reddit.com/r/dankmemes/comments/9r9d4y/elonchan/",
              "https://cdn.discordapp.com/attachments/516388114550226944/518799301498109963/ocqc6cds8jf01.jpg",
@@ -461,5 +461,13 @@ async def meme():
              "https://cdn.discordapp.com/attachments/516388114550226944/518801763134865409/stealth-mode-activated_o_1168408.png",
              "https://cdn.discordapp.com/attachments/516388114550226944/518801763655221249/Screenshot_2018-08-14-14-19-14-224_com.google.android.youtube.png"]))
          await client.say(embed=embed)
+    
+client.command()
+async def dyk():
+         embed = discord.Embed(title="Did you know?", color = 0x00FFFF)
+         embed.set_footer(text="Tip: If the image didnt load try to use this command again! | Developer Nela | Bot version: 1.2")
+         embed.set_image(url = random.choice([
+             "https://cdn.discordapp.com/attachments/516388114550226944/518810156000215041/IMG_20181202_162609.jpg"]))
+        await client.say(embed=embed)
     
 client.run(os.getenv("BOT_TOKEN"))

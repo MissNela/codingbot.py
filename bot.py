@@ -194,7 +194,7 @@ async def dadmin(ctx, user: discord.Member):
 async def warn(ctx, userName: discord.User, *, message:str):
     channel = discord.utils.get(client.get_all_channels(), name='🎀logs-1🎀')
     
-    embed = discord.Embed(color = 0xB22222
+    embed = discord.Embed(color = 0xB22222,
         
         title = "Warning",
         description = """ __**You has been warned!**__
@@ -209,7 +209,7 @@ async def warn(ctx, userName: discord.User, *, message:str):
     await client.send_message(userName, embed=embed)
  
 
-    embed = discord.Embed(color = 0xB22222
+    embed = discord.Embed(color = 0xB22222,
         
         title = "Warning",
         description = """ __**You has been warned!**__

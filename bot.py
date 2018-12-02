@@ -67,10 +67,6 @@ No staff disrespect this will result in a ban and never try to break any one of 
     await client.send_message(channel, embed=embed)
     
 
-@client.command(pass_context = True)
-async def restart():
-    if author.id == "342364288310312970":
-        await client.logout()
 
 @client.command()
 async def help():
@@ -130,10 +126,7 @@ async def help():
         
         **(stop**
         Stops playing music!
-        
-        **(restart**
-        Developer Only. Bot will restart **[BETA]**
-        
+      
         **(ping**
         :ping_pong: Pong!
         """
@@ -476,6 +469,6 @@ async def joinvoice(ctx):
 async def ping(ctx):
     t = await client.say('Pong!')
     ms = (t.timestamp-ctx.message.timestamp).total_seconds() * 1000
-    await client.edit_message(t, new_content='ping_pong Pong! Actual ping: {}ms'.format(int(ms)))
+    await client.edit_message(t, new_content=':ping_pong: Pong! Actual ping: {}ms'.format(int(ms)))
     
 client.run(os.getenv("BOT_TOKEN"))

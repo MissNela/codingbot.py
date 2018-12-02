@@ -118,15 +118,6 @@ async def help():
         **(cube**
         Chooses randome number between 1-6.
         
-        **(play**
-        Plays a music [BETA]
-        
-        **(joinvoice**
-        Bot joines a voice channel!
-        
-        **(stop**
-        Stops playing music!
-      
         **(ping**
         :ping_pong: Pong!
         """
@@ -427,44 +418,8 @@ async def embed(ctx, *args):
     await client.send_message(ctx.message.channel, embed=Embed(color = color, description=text))
     await client.delete_message(ctx.message)
 
-@client.command(pass_context = True)
-async def play(ctx, *, url):
-    author = ctx.message.author
-    voice_channel = author.voice_channel
-    try:
-        vc = await client.join_voice_channel(voice_channel)
-        msg = await client.say("Loading...")
-        player = await vc.create_ytdl_player("ytsearch:" + url)
-        player.start()
-        await client.say("Succesfully Loaded ur song!")
-        await client.delete_message(msg)
-    except Exception as e:
-        print(e)
-        await client.say("Reconnecting")
-        for x in client.voice_clients:
-            if(x.server == ctx.message.server):
-                await x.disconnect()
-                nvc = await client.join_voice_channel(voice_channel)
-                msg = await client.say("Loading...")
-                player2 = await nvc.create_ytdl_player("ytsearch:" + url)
-                player2.start()
 
 
-@client.command(pass_context = True)
-async def stop(ctx):
-    for x in client.voice_clients:
-        if(x.server == ctx.message.server):
-            return await x.disconnect()
-
-    return await client.say("I am not playing anyting???!")
-
-@client.command(pass_context=True)
-@commands.has_permissions(kick_members=True)
-async def joinvoice(ctx):
-    author = ctx.message.author
-    channel = author.voice_channel
-    await client.join_voice_channel(channel)
-    
 @client.command(pass_context=True)
 async def ping(ctx):
     t = await client.say('Pong!')

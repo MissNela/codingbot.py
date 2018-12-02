@@ -447,7 +447,7 @@ async def ping(ctx):
     
 @client.command()
 async def meme():
-         embed = discord.Embed(title="Take my meme!", color = xFFD700)
+         embed = discord.Embed(title="Take my meme!", color = 0xFFD700)
          embed.set_footer(text="Tip: If the image didnt load try to use this command again!      Developer Nela. bot version: 1.1")
          embed.set_image(url = random.choice([
              "https://www.reddit.com/r/dankmemes/comments/9r9d4y/elonchan/",

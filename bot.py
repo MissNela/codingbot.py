@@ -462,7 +462,7 @@ async def meme():
              "https://cdn.discordapp.com/attachments/516388114550226944/518801763655221249/Screenshot_2018-08-14-14-19-14-224_com.google.android.youtube.png"]))
          await client.say(embed=embed)
     
-client.command()
+@client.command()
 async def dyk():
          embed = discord.Embed(title="Did you know?", color = 0x00FFFF)
          embed.set_footer(text="Tip: If the image didnt load try to use this command again! | Developer Nela | Bot version: 1.2")

@@ -468,6 +468,6 @@ async def dyk():
          embed.set_footer(text="Tip: If the image didnt load try to use this command again! | Developer Nela | Bot version: 1.2")
          embed.set_image(url = random.choice([
              "https://cdn.discordapp.com/attachments/516388114550226944/518810156000215041/IMG_20181202_162609.jpg"]))
-        await client.say(embed=embed)
+         await client.say(embed=embed)
     
 client.run(os.getenv("BOT_TOKEN"))

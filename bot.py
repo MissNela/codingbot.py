@@ -483,7 +483,7 @@ async def update():
     Update log! :white_check_mark:
     ===================""", inline=False)
     embed.add_field(name = "Removed:", value=":x: Nothing has been removed. :x:",inline=False)
-    await client.send_message(message.author, embed=embed)
+    await client.send_message(embed=embed)
    
    
             

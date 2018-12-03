@@ -121,11 +121,15 @@ async def help():
         **(ping**
         :ping_pong: Pong!
         
-        **(dog*
+        **(dog**
         Shows a cute dog!
         
-        **(meme*
+        **(meme**
         Shows a meme!
+        
+        **(updates*
+        Shows bot update!
+        
         """,
         color = 0x800000
         
@@ -469,5 +473,18 @@ async def dyk():
          embed.set_image(url = random.choice([
              "https://cdn.discordapp.com/attachments/516388114550226944/518810156000215041/IMG_20181202_162609.jpg"]))
          await client.say(embed=embed)
-    
+
+@client.command()
+async def updates():
+    embed = discord.Embed(title = "Update log!", color = 0xFFFF00)
+    embed.set_footer(text="Update log | Made by: Nela! | v1.4")
+    embed.add_field(name = "Bot prefix:", value = "(", inline=True)
+    embed.add_field(name = "Updates:", value = """Added:
+    Update log! :white_check_mark:
+    ===================""", inline=False)
+    embed.add_field(name = "Removed:", value=":x: Nothing has been removed. :x:",inline=False)
+    await client.say(member, embed=embed)
+   
+   
+            
 client.run(os.getenv("BOT_TOKEN"))

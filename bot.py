@@ -106,58 +106,12 @@ async def verify(ctx):
     role = discord.utils.get(ctx.message.server.roles, name='coding newbie')
     await client.add_roles(ctx.message.author, role)
  
-@client.command(pass_context = True)
-@commands.has_permissions(administrator=True)     
-async def mmod(ctx, user: discord.Member):
-    nickname = '[Helper]' + user.name
-    await client.change_nickname(user, nickname=nickname)
-    role = discord.utils.get(ctx.message.server.roles, name='coding helper')
-    await client.add_roles(user, role)
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-    embed.set_author(name='Congratulations Message')
-    embed.add_field(name = '__Congratulations__',value ='**Congratulations for mod.Hope you will be more active here. Thanks for your help and support.**',inline = False)
-    embed.set_image(url = 'https://preview.ibb.co/i1izTz/ezgif_5_e20b665628.gif')
-    await client.send_message(user,embed=embed)
-    await client.delete_message(ctx.message)
-    
+
 @client.command()
 async def invite():
     await client.say("https://discordapp.com/oauth2/authorize?client_id=513497138143952906&permissions=8&scope=bot")
     
-@client.command(pass_context = True)
-@commands.has_permissions(administrator=True)     
-async def dmod(ctx, user: discord.Member):
-    nickname = user.name
-    await client.change_nickname(user, nickname=nickname)
-    role = discord.utils.get(ctx.message.server.roles, name='coding helper')
-    await client.remove_roles(user, role)
-    await client.delete_message(ctx.message)
 
-@client.command(pass_context = True)
-@commands.has_permissions(administrator=True)     
-async def madmin(ctx, user: discord.Member):
-    nickname = '[Admin]' + user.name
-    
-    await client.change_nickname(user, nickname=nickname)
-    role = discord.utils.get(ctx.message.server.roles, name='admin coder')
-    await client.add_roles(user, role)
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-    embed.set_author(name='Congratulations Message')
-    embed.add_field(name = '__Congratulations__',value ='**Congratulations for mod.Hope you will be more active here. Thanks for your help and support.**',inline = False)
-    embed.set_image(url = 'https://preview.ibb.co/i1izTz/ezgif_5_e20b665628.gif')
-    await client.send_message(user,embed=embed)
-    await client.delete_message(ctx.message)
-    
-@client.command(pass_context = True)
-@commands.has_permissions(administrator=True)     
-async def dadmin(ctx, user: discord.Member):
-    nickname = user.name
-    await client.change_nickname(user, nickname=nickname)
-    role = discord.utils.get(ctx.message.server.roles, name='admin coder')
-    await client.remove_roles(user, role)
-    await client.delete_message(ctx.message)
 
 @client.command(pass_context = True)
 @commands.has_permissions(kick_members=True)
@@ -249,30 +203,6 @@ async def announce(ctx, userName: discord.User, *, message:str):
     ``{1}``""".format(message, ctx.message.author))
     
 
-@client.command(pass_context = True)
-@commands.has_permissions(administrator=True)     
-async def mute(ctx, user: discord.Member):
-    nickname = '[Muted] ' + user.name
-    
-    await client.change_nickname(user, nickname=nickname)
-    role = discord.utils.get(ctx.message.server.roles, name='Muted')
-    await client.add_roles(user, role)
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-    embed.set_author(name='Mute Announce')
-    embed.add_field(name = '__Announce__',value ='**You has been muted!.**',inline = False)
-
-    await client.send_message(user,embed=embed)
-    await client.delete_message(ctx.message)
-    
-@client.command(pass_context = True)
-@commands.has_permissions(administrator=True)     
-async def unmute(ctx, user: discord.Member):
-    nickname = user.name
-    await client.change_nickname(user, nickname=nickname)
-    role = discord.utils.get(ctx.message.server.roles, name='Muted')
-    await client.remove_roles(user, role)
-    await client.delete_message(ctx.message)
 
 
 
@@ -449,7 +379,11 @@ async def update():
     embed.add_field(name = "Updates:", value = """Added:
     Update log! :white_check_mark:
     ===================""", inline=False)
-    embed.add_field(name = "Removed:", value=":x: Nothing has been removed. :x:",inline=False)
+    embed.add_field(name = "Removed:", value="""
+    **(mmod** - Make mod Admins only.
+    **(madmin** - Make Admin (Co-Owner - Owner only.)
+    **(mute** - AT only
+    **(unmute** - AT only""",inline=False)
     await client.say(embed=embed)
    
    

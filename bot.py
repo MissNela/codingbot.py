@@ -127,7 +127,7 @@ async def help():
         **(meme**
         Shows a meme!
         
-        **(updates*
+        **(update**
         Shows bot update!
         
         """,
@@ -475,7 +475,7 @@ async def dyk():
          await client.say(embed=embed)
 
 @client.command()
-async def updates():
+async def update():
     embed = discord.Embed(title = "Update log!", color = 0xFFFF00)
     embed.set_footer(text="Update log | Made by: Nela! | v1.4")
     embed.add_field(name = "Bot prefix:", value = "(", inline=True)

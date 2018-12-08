@@ -108,6 +108,7 @@ async def verify(ctx):
  
 
 @client.command()
+@command.has_permissions(administrator=True)
 async def invite():
     await client.say("https://discordapp.com/oauth2/authorize?client_id=513497138143952906&permissions=8&scope=bot")
     
@@ -145,7 +146,7 @@ async def warn(ctx, userName: discord.User, *, message:str):
         Reason:
         ``{2}``""".format(userName, ctx.message.author, message)
 )
-    await client.send_message(channel, embed=embed)
+    await client.send_message(server.channel, embed=embed)
     
     
 

@@ -108,7 +108,7 @@ async def verify(ctx):
  
 
 @client.command()
-@command.has_permissions(administrator=True)
+@commands.has_permissions(administrator=True)
 async def invite():
     await client.say("https://discordapp.com/oauth2/authorize?client_id=513497138143952906&permissions=8&scope=bot")
     
